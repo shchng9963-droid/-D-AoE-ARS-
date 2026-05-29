@@ -118,5 +118,4 @@ Baselines (`ShortestPathRouting`, `FidelityAwareRouting`,
 
 ## License
 
-No license file is shipped; add one (e.g. MIT, Apache-2.0) before making
-the repository public.
+MIT license
