@@ -9,51 +9,17 @@ The simulator also ships with several baselines (Shortest-Path,
 Fidelity-Aware, Greedy, Q-CAST, DQN routing, LP upper bound) and standard
 topologies (NSFNET, SURFnet, COST239, Waxman) for reproducible comparisons.
 
-## Repository layout
-
-```
-quantum-net-research/
-├── src/
-│   ├── network_model.py             # Core data structures + physics models
-│   ├── protocols.py                 # AoE-ARS + 3 centralized baselines
-│   ├── distributed_protocols.py     # Distributed AoE-ARS, D-Greedy, Q-CAST, RL
-│   ├── strong_baselines.py          # Q-CAST, DQN routing, LP upper bound
-│   ├── simulation_engine.py         # Discrete-event simulator
-│   ├── topologies.py                # NSFNET / SURFnet / COST239 / Waxman
-│   ├── run_experiments.py           # 5 main scenarios
-│   ├── run_experiments_v2.py        # Heterogeneous + hotspot
-│   ├── run_extended_experiments.py  # 30-seed runs, dynamic failures
-│   ├── run_distributed_experiments.py  # Comm-delay sweep, real topologies
-│   ├── run_verification_*.py        # Verification / ablation experiments
-│   ├── exp_convergence.py           # Convergence study
-│   ├── exp_hardware_platforms.py    # Hardware-platform comparison
-│   ├── generate_figures*.py         # Plot scripts (PDF + PNG)
-│   ├── generate_distributed_figures.py
-│   ├── generate_extended_figures.py
-│   └── gen_architecture_fig.py
-├── requirements.txt
-└── README.md
-```
-
-Running any experiment script writes its results JSON to `experiments/`
-and figures to `figures/`. Both directories are created on demand and are
-git-ignored.
-
 ## Installation
 
 ```bash
-git clone <your-fork-url> quantum-net-research
 cd quantum-net-research
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Tested on Python 3.10+. The only runtime dependencies are `numpy` and
-`matplotlib`.
-
 ## Quick start
 
-A minimal smoke test that builds NSFNET and runs AoE-ARS for a few hundred
+A minimal test that builds NSFNET and runs AoE-ARS for a few hundred
 slots:
 
 ```python
